@@ -5,15 +5,15 @@
 
 ---
 
-- Step 0: add current cshell path to `~/.bashrc` or `~/.cshrc`.
+### Step 0: add current cshell path to `~/.bashrc` or `~/.cshrc`.
 
-- Step 1: convert the original data (CEOS format) to SLC and LED formats:
+### Step 1: convert the original data (CEOS format) to SLC and LED formats:
 ```shell
 preprocess_alos2_batch.csh  LED.list  batch.config  [n1]  [n2]
 # n1 and n2 represent the number of ALOS-2 subswath, n2 >= n1
 ```
 
-- Step 2: align all slave images to the supermaster image.
+### Step 2: align all slave images to the supermaster image.
 ```shell
 align_ALOS2_swath.csh  align.in  n_swath  batch.config
 # the first line of align.in represents the supermaster file
@@ -24,12 +24,12 @@ we upsample each SLC file to enforce each subswath to have the same
 range sampling rate and PRF (azimuth) (using "samp_slc.csh").**
 
 
-- Step 3: generate "topo_ra.grd" and "trans.dat" for each subswath.
+### Step 3: generate "topo_ra.grd" and "trans.dat" for each subswath.
 ``` shell
 dem2topo_ra_swath.csh  n_swath  batch.config
 ```
 
-- Step 4: make pairs of interferograms between any two pairs.
+### Step 4: make pairs of interferograms between any two pairs.
 ```shell
 intf_ALOS2_batch_new.csh  intf.in  batch.config  start_swath  end_swath  Ncores
 ```
@@ -37,7 +37,7 @@ Because ALOS-2 has a better orbit precision and alignment than ALOS-1, we could 
 interferograms between the reference and repeat date of data acquisitions. The phase closure 
 could be as small as zero.
 
-- Step 5: merge the filtered phase, correlation and mask grid files
+### Step 5: merge the filtered phase, correlation and mask grid files
 ```shell
 merge_swath_ALOS2_list.csh  dir.list  dates.run  batch.config
 # this command generate the necessary file list that will be used in merge_batch.csh
@@ -58,7 +58,7 @@ consider two extra factors:**
 1. FLIPUD each topo_ra.grd of each subswath.
 2. subtract the difference of Earth radius of each subswath.
 
-- Step 6: unwrap each interferogram and geocode them.
+### Step 6: unwrap each interferogram and geocode them.
 ```shell
 unwrap_parallel.csh  dates.run  threshold  Ncores
 # threshold means the coherence threshold of SNAPHU unwrapping 

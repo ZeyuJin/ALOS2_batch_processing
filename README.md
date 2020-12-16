@@ -1,6 +1,7 @@
 # ALOS2_batch_processing
-**This repo is used to process ALOS-2 time-series interferograms.
-Note: some scripts could be found in $YOURPATH/GMTSAR/bin** 
+**This repo is used to process ALOS-2 time-series interferograms.**
+
+**Note: some scripts could be found in $YOURPATH/GMTSAR/bin** 
 
 Step 0: add current cshell path to `~/.bashrc` or `~/.cshrc`.
 

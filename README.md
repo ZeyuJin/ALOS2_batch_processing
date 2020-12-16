@@ -1,5 +1,5 @@
 # ALOS2_batch_processing
-This repo is used to process ALOS-2 time-series interferograms.
+**This repo is used to process ALOS-2 time-series interferograms.**
 
 Step 0: add current cshell path to `~/.bashrc` or `~/.cshrc`.
 

@@ -55,7 +55,7 @@ merge_batch_five.csh  inputfile  batch.config
 **Merging subswaths of ALOS-2 is similar to merging those of Sentinel-1.
 You need to run "merge_swath" twice. To merge the topo_ra.grd, you need to
 consider two extra factors:**
-1. FLIPUD each topo_ra.grd of each subswath.
+1. gmt FLIPUD each topo_ra.grd of each subswath (Because SLC indexs from upper left).
 2. subtract the difference of Earth radius of each subswath.
 
 ### Step 6: unwrap each interferogram and geocode them.

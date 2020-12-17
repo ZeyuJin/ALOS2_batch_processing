@@ -31,7 +31,7 @@ dem2topo_ra_swath.csh  n_swath  batch.config
 
 ### Step 4: make pairs of interferograms between any two pairs.
 ```shell
-intf_ALOS2_batch_new.csh  intf.in  batch.config  start_swath  end_swath  Ncores
+intf_ALOS2_batch_firkin.csh  intf.in  batch.config  start_swath  end_swath  Ncores
 ```
 Because ALOS-2 has a better orbit precision and alignment than ALOS-1, we could construct any 
 interferograms between the reference and repeat date of data acquisitions. The phase closure 

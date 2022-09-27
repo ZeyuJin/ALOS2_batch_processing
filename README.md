@@ -16,6 +16,7 @@ preprocess_alos2_batch.csh  LED.list  batch.config  [n1]  [n2]
 ### Step 2: align all slave images to the supermaster image.
 ```shell
 # first need to make empty directories from F(n1) to F(n2)
+
 align_ALOS2_swath_new.csh  align.in  n_swath  batch.config
 # the first line of align.in represents the supermaster file
 # n_swath represents the number of ALOS-2 subswath

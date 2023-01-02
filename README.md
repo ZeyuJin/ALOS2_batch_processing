@@ -21,6 +21,8 @@ preproc_ALOS2_batch_new.csh  LED.list  batch.config  [n1]  [n2]
 align_ALOS2_swath_new.csh  align.in  n_swath  batch.config
 # the first line of align.in represents the supermaster file
 # n_swath represents the number of ALOS-2 subswath
+# unlike Sentinel-1 data, the master date of ALOS-2 data is 
+# defined as last 6 digits of yyyymmdd
 ```
 **In order to merge each subswath using the "merge_batch.csh" later on,
 we upsample each SLC file to enforce each subswath to have the same
@@ -35,6 +37,7 @@ dem2topo_ra_swath.csh  n_swath  batch.config
 ### Step 4: make pairs of interferograms between any two pairs.
 ```shell
 intf_ALOS2_batch_firkin.csh  intf.in  batch.config  start_swath  end_swath  Ncores
+# intf_ALOS2_batch_new.csh maps all processes to multiple CPUs across multiple nodes.
 ```
 Because ALOS-2 has a better orbit precision and alignment than ALOS-1, we could construct any 
 interferograms between the reference and repeat date of data acquisitions. The phase closure 

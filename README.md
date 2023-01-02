@@ -69,7 +69,7 @@ consider two extra factors:**
 unwrap_parallel.csh  dates.run  threshold  Ncores
 # threshold means the coherence threshold of SNAPHU unwrapping 
 
-proj_ra2ll.csh  trans.dat  phase.grd  phase_ll.grd
-# phase.grd: an input GRD file using radar coordinates
-# phase_ll.grd: an output GRD file using geographic coordinates.
+geocode_batch.csh dates.run resolution grdfiles corr_threshold [Ncores]
+# grdfiles saves the stem names of each product: unwrap/phasefilt
+# resolution is set to the same resolution of DEM
 ```

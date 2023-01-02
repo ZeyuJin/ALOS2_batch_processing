@@ -46,21 +46,23 @@ if ($iono == 1) then
    split_spectrum $master.PRM > params1
    mv SLCH ../SLC_H/$master.SLC
    mv SLCL ../SLC_L/$master.SLC
+
+   # put this part inside if/endif, otherwise stopped
+   cd ../SLC_L
+   set wl1 = `grep low_wavelength ../SLC/params1 | awk '{print $3}'`
+   cp ../SLC/$master.PRM .
+   ln -s ../../raw/$master.LED .
+   sed "s/.*wavelength.*/radar_wavelength    = $wl1/g" $master.PRM > tmp
+   mv tmp $master.PRM
+
+   cd ../SLC_H
+   set wh1 = `grep high_wavelength ../SLC/params1 | awk '{print $3}'`
+   cp ../SLC/$master.PRM .
+   ln -s ../../raw/$master.LED .
+   sed "s/.*wavelength.*/radar_wavelength    = $wh1/g" $master.PRM > tmp
+   mv tmp $master.PRM
+
 endif
-
-cd ../SLC_L
-set wl1 = `grep low_wavelength ../SLC/params1 | awk '{print $3}'`
-cp ../SLC/$master.PRM .
-ln -s ../../raw/$master.LED .
-sed "s/.*wavelength.*/radar_wavelength    = $wl1/g" $master.PRM > tmp
-mv tmp $master.PRM
-
-cd ../SLC_H
-set wh1 = `grep high_wavelength ../SLC/params1 | awk '{print $3}'`
-cp ../SLC/$master.PRM .
-ln -s ../../raw/$master.LED .
-sed "s/.*wavelength.*/radar_wavelength    = $wh1/g" $master.PRM > tmp
-mv tmp $master.PRM
 
 cd ..
 

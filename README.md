@@ -9,8 +9,9 @@
 
 ### Step 1: convert the original data (CEOS format) to SLC and LED formats:
 ```shell
-preprocess_alos2_batch.csh  LED.list  batch.config  [n1]  [n2]
+preproc_ALOS2_batch_new.csh  LED.list  batch.config  [n1]  [n2]
 # n1 and n2 represent the number of ALOS-2 subswath, n2 >= n1
+# LED.list should be located in the raw/ directory
 ```
 
 ### Step 2: align all slave images to the supermaster image.

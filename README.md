@@ -38,6 +38,7 @@ dem2topo_ra_swath.csh  n_swath  batch.config
 ```shell
 intf_ALOS2_batch_firkin.csh  intf.in  batch.config  start_swath  end_swath  Ncores
 # intf_ALOS2_batch_new.csh maps all processes to multiple CPUs across multiple nodes.
+# It's better to use intf_ALOS2_batch_new.csh on the supercomputer that has multiple nodes
 ```
 Because ALOS-2 has a better orbit precision and alignment than ALOS-1, we could construct any 
 interferograms between the reference and repeat date of data acquisitions. The phase closure 
